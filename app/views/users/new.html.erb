@@ -1,0 +1,29 @@
+
+<div class="create-users-portion">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7">
+				<%=form_for @user do |f|%>
+					<div class="form-group">
+						<%= f.text_field :email, class: "form-control input-lg", placeholder: "Type your email, we won't send you garbage ever" %>
+					</div>
+
+					<div class="form-group">
+						<%= f.text_field :username, class: "form-control input-lg", placeholder: "Type your username" %>
+					</div>
+
+					<div class="form-group">
+						<%= f.password_field :password, class: "form-control input-lg", placeholder: "Type your password" %>
+					</div>
+					
+					<%= f.submit "Register", class: "btn btn-lg btn-block" %>
+				<%end%>
+			</div>
+
+			<!--SPACE FOR ADS AND WIDGETS-->
+			<div class="col-sm-3">
+				
+			</div>
+		</div>
+	</div>
+</div>

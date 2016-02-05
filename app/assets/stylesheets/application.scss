@@ -1,0 +1,137 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+@import url(https://fonts.googleapis.com/css?family=Candal);
+
+
+$primary-color: #303030;
+$secondary-color: #48494e;
+$dark-orange: #EF6D3B;
+$light-orange: white;
+$nice-green: green;
+$combine-white: #a1a1a1;
+
+@import "posts";
+@import "users";
+
+body{
+
+	a{
+		color: $dark-orange;
+		text-decoration: none;
+	}
+
+	a:hover{color: white;}
+
+	font-family: 'Roboto Slab', serif;
+
+	* {
+	  box-sizing: border-box;
+	}
+
+	.background-image {
+	  background-image: url(/assets/background.jpg);
+	  background-size: cover;
+	  display: block;
+	  filter: blur(50px);
+	  -webkit-filter: blur(50px);
+	  height: 800px;
+	  left: 0;
+	  position: fixed;
+	  right: 0;
+	  z-index: -100;
+	}
+
+	.content {
+	  background: rgba(255, 255, 255, 0.35);
+	  border-radius: 3px;
+	  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+	  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	  top: 10px;
+	  left: 0;
+	  position: fixed;
+	  margin-left: 20px;
+	  margin-right: 20px;
+	  right: 0;
+	  z-index: 2;
+	  padding: 0 10px;
+	}
+
+	.navbar-default{
+		border-radius: 0px;
+		background-color: $primary-color;
+		border: 0px;
+		padding: 0;
+		height: 60px;
+
+		.navbar-brand{
+			font-size: 30px;
+			font-family: 'Candal', sans-serif;
+			color: $light-orange;
+			margin-top: 3px;
+			.dark-orange{color: $dark-orange;}			
+		}
+
+		.navbar-brand:hover{
+			color: $light-orange;
+		}
+
+		.navbar-nav{
+			padding-left: 15px;
+			a{
+				font-size: 15px;			
+				color: white;
+				margin-right: 15px;
+				margin-top: 5px;
+			}
+
+			a:hover{
+				color:$dark-orange;
+			}
+			
+			
+		}
+
+		/*ALL THIS MEDIA QUERY FIXES THE NAVBAR CRAZY CHANGE FOR WIDHTS BELLOW 990PX*/
+
+		@media (max-width: 990px) {
+		    .navbar-header {
+		        float: none;
+		    }
+		    .navbar-toggle {
+		        display: block;
+		    }
+		    .navbar-collapse {
+		        border-top: 1px solid transparent;
+		        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+		    }
+		    .navbar-collapse.collapse {
+		        display: none!important;
+		    }
+		    .navbar-nav {
+		        float: none!important;
+		        margin: 7.5px -15px;
+		    }
+		    .navbar-nav>li {
+		        float: none;
+		    }
+		    .navbar-nav>li>a {
+		        padding-top: 10px;
+		        padding-bottom: 10px;
+		    }
+		}
+	}
+
+	footer{
+		margin-left: 70px;
+		margin-right: 70px;
+		background-color: $primary-color;
+		padding: 20px;
+		text-align: center;
+		color: white;
+		
+
+	}
+
+}
+

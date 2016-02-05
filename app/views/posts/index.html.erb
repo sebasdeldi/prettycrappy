@@ -1,0 +1,33 @@
+
+<div class="row">
+
+	<div class="main-container">
+		<!-- PORTION WHERE ALL THE POSTS ARE CONTAINED -->
+		<div class="col-sm-8">
+			<div class="posts-portion ">
+				<% @posts.each do |post| %>
+					<div class="post-container hyphenate">
+						<%= post.body %>
+					</div>
+				<%end%>
+			</div>
+		</div>
+
+		<!-- PORTION WHERE THE ADS AND WIDGETS ARE LOCATED -->
+		<div class="col-sm-4">
+			<div class="widgets-portion">
+				<div class="widgets-upper">
+					
+				</div>
+
+				<div class="widgets-lower">
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
+

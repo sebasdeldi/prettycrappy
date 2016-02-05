@@ -1,0 +1,22 @@
+
+<div class="create-post-portion">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7">
+				<h1><%= form_title %></h1>
+				<%=form_for @post do |f|%>
+					<div class="form-group">
+						<%= f.text_area :body, class: "form-control input-lg for-posts", placeholder: "Tell us your story!", maxlength: "700" %>
+					</div>
+					
+					<%= f.submit form_title, class: "btn btn-lg btn-block" %>
+				<%end%>
+			</div>
+
+			<!--SPACE FOR ADS AND WIDGETS-->
+			<div class="col-sm-3">
+				
+			</div>
+		</div>
+	</div>
+</div>
