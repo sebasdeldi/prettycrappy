@@ -9,8 +9,11 @@
 #
 
 class PostsController < ApplicationController
+
+	before_action :private_access, only: [:edit, :destroy, :delete]
+
 	def index
-		@posts = Post.all
+		@posts = Post.all.reverse_order
 	end
 
 	def new
@@ -40,6 +43,7 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
+		@post = Post.find(params[:id])
 		@post.destroy
 		redirect_to root_path
 	end

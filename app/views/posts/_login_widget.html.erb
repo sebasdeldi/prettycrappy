@@ -1,0 +1,40 @@
+<% if signed_in? %>
+
+	<div class="user-global">
+		<div class="user-info">
+			<h4>Logged as <%= current_user.username%></h4>
+			<center><img src="<%= Gravatar.new("#{current_user.email}").image_url %>" class="img-circle" /></center>
+		</div>
+
+
+		<div class="user-data">
+			<p>Posts  <span class="badge">4</span></p>
+			<p>Comments   <span class="badge">4</span></p>
+			<p>Rank  <span class="badge">4</span></p>
+		</div>
+	</div>
+	
+
+	<center><%= link_to 'Log Out', logout_path, method: :delete%></center>
+
+	
+<%else%>
+	<%= form_tag controller: :sessions, action: :create do %>
+		
+		<h4>Log In</h4>
+		<div class="form-group">
+			<%= label_tag(:email, "E-mail", class: 'lbl' ) %>
+			<%= text_field_tag(:email, nil, class: 'form-control input-lg') %>
+		</div>
+		<div class="form-group">
+			<%= label_tag(:password, "Password", class: 'lbl') %> 
+			<%= password_field_tag(:password, nil, class: 'form-control input-lg') %>
+		</div>
+
+		<center><%= button_tag(type: 'submit', class: "btn btn-grey last-btn-index") do %>
+		  <span class="glyphicon glyphicon-log-in"></span> 
+		<% end %></center>	
+
+		<center><p class="color-white">Don't have an accout?    <%= link_to "  Register!", new_user_path %></p></center>
+	<%end%>
+<% end %>

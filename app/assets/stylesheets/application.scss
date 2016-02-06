@@ -13,8 +13,84 @@ $combine-white: #a1a1a1;
 
 @import "posts";
 @import "users";
+@import "sessions";
+
 
 body{
+
+	.last-btn-index{
+		margin-top: 10px;
+		margin-bottom: 17px;
+		font-size: 25px;
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+
+	.btn-grey{
+		background-color: $dark-orange;
+	}
+
+	.btn-grey:hover{
+		background-color: $secondary-color;
+		color: $dark-orange;
+	}
+
+	.widgets-portion{
+
+		.widgets-upper{
+			padding-top: 10px;
+			padding-left: 25px;
+			padding-right: 25px;
+			background-color: $secondary-color;
+			height: 395px;
+
+			a{
+				margin-top: 0px;
+			}
+
+			p{
+				color: $dark-orange;
+				font-weight: bold;
+				font-size: 16px;
+			}
+
+			.color-white{
+				color: white;
+				margin-top: 45px;
+			}
+
+			.btn-grey{
+				background-color: $dark-orange;
+			}
+
+			.btn-grey:hover{
+				background-color: $primary-color;
+				color: $dark-orange;
+			}
+		}
+
+		.widgets-lower{
+			background-color: white;
+			height: 700px;
+		}
+	}
+
+	.lbl{
+		color: white;
+	}
+
+	.last{
+		margin-top: 50px;
+	}
+
+	.form-control{
+		border-radius: 4px;
+	}
+
+	h1{
+		color: $dark-orange;
+		margin-bottom: 50px;
+	}
 
 	a{
 		color: $dark-orange;
@@ -123,13 +199,13 @@ body{
 	}
 
 	footer{
-		margin-left: 70px;
-		margin-right: 70px;
+		margin-left: 55px;
+		margin-right: 55px;
 		background-color: $primary-color;
 		padding: 20px;
 		text-align: center;
 		color: white;
-		
+
 
 	}
 

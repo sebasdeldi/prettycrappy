@@ -1,9 +1,17 @@
 
+
+
 .main-container{
+	
+	.no-padding{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
 
 	margin-top: 35px;
 	margin-left: 70px;
 	margin-right: 70px;
+
 
 	.posts-portion{
 
@@ -17,18 +25,10 @@
 			padding: 15px;
 			border-radius: 4px;
 		}
-	}
 
-	.widgets-portion{
-		
-		.widgets-upper{
-			background-color: $secondary-color;
-			height: 250px;
-		}
-
-		.widgets-lower{
-			background-color: white;
-			height: 1350px;
+		.for-posts{
+			height: 200px;
+			margin-bottom: 50px;
 		}
 	}
 
