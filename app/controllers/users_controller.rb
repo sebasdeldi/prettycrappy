@@ -2,12 +2,13 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  email      :string
-#  username   :string
-#  password   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  email           :string
+#  username        :string
+#  password_digest :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  sex             :string
 #
 
 class UsersController < ApplicationController
@@ -26,6 +27,6 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.require(:user).permit(:username, :password, :email)
+			params.require(:user).permit(:username, :password, :email, :sex)
 		end
 end

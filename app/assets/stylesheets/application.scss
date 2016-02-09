@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 @import url(https://fonts.googleapis.com/css?family=Candal);
+@import url(http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css);
 
 
 $primary-color: #303030;
@@ -17,6 +18,28 @@ $combine-white: #a1a1a1;
 
 
 body{
+
+	.lbl{
+		color: white;
+	}
+
+	.fa fa-mars, .fa fa-venus, .fa fa-transgender-alt{
+		font-size: 30px;
+	}
+
+	.body-text{
+		color:white;
+	}
+
+	.body-text:hover{
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	.alert-danger{
+		border-radius: 0px;
+		margin-bottom: 0px;
+	}
 
 	.last-btn-index{
 		margin-top: 10px;
@@ -35,49 +58,84 @@ body{
 		color: $dark-orange;
 	}
 
-	.widgets-portion{
 
-		.widgets-upper{
-			padding-top: 10px;
-			padding-left: 25px;
-			padding-right: 25px;
-			background-color: $secondary-color;
-			height: 395px;
+	.main-container{
+		
+		.no-padding{
+			padding-left: 0px;
+			padding-right: 0px;
+		}
 
-			a{
-				margin-top: 0px;
-			}
+		margin-top: 35px;
+		margin-left: 70px;
+		margin-right: 70px;
 
-			p{
-				color: $dark-orange;
-				font-weight: bold;
-				font-size: 16px;
-			}
 
-			.color-white{
+		.posts-portion{
+
+			padding: 50px;
+			background-color: $primary-color;
+			height: 1095px;
+
+			.post-container{
+				background-color: $secondary-color;
 				color: white;
-				margin-top: 45px;
+				margin-bottom: 20px;
+				padding: 15px;
+				border-radius: 4px;
 			}
 
-			.btn-grey{
-				background-color: $dark-orange;
-			}
-
-			.btn-grey:hover{
-				background-color: $primary-color;
-				color: $dark-orange;
+			.for-posts{
+				height: 200px;
+				margin-bottom: 50px;
 			}
 		}
 
-		.widgets-lower{
-			background-color: white;
-			height: 700px;
+		.widgets-portion{
+
+			.widgets-upper{
+				padding-top: 10px;
+				padding-left: 25px;
+				padding-right: 25px;
+				background-color: $secondary-color;
+				height: 395px;
+
+				a{
+					margin-top: 0px;
+				}
+
+				p{
+					color: $dark-orange;
+					font-weight: bold;
+					font-size: 16px;
+				}
+
+				.color-white{
+					color: white;
+					margin-top: 45px;
+				}
+
+				.btn-grey{
+					background-color: $dark-orange;
+				}
+
+				.btn-grey:hover{
+					background-color: $primary-color;
+					color: $dark-orange;
+				}
+			}
+
+			.widgets-lower{
+				background-color: white;
+				height: 700px;
+			}
 		}
+
+
 	}
 
-	.lbl{
-		color: white;
-	}
+	
+
 
 	.last{
 		margin-top: 50px;
@@ -201,12 +259,10 @@ body{
 	footer{
 		margin-left: 55px;
 		margin-right: 55px;
-		background-color: $primary-color;
+		background-color: $secondary-color;
 		padding: 20px;
 		text-align: center;
 		color: white;
-
-
 	}
 
 }

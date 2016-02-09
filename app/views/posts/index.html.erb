@@ -4,20 +4,25 @@
 	<div class="main-container">
 		<!-- PORTION WHERE ALL THE POSTS ARE CONTAINED -->
 		<div class="col-sm-8 no-padding">
-			<div class="posts-portion ">
-				<% @posts.each do |post| %>
-					<div class="post-container hyphenate">
-						<%= post.body %>
+				<div class="posts-portion ">
+					<% @posts.each do |post| %>
+						<%= link_to post, :class => "body-text" do%>
+							<div class="post-container hyphenate">
+								<%= post.body %>
+								<%= post.category %>
+								<% if signed_in? && post.user == current_user %>
 
-						<% if signed_in? %>
-							<%= link_to "Edit", edit_post_path(post) %>
-							<%= link_to "Delete", post, method: :delete, data: {confirm: "Are you sure you want to delete this post?"} %>
+									<%= link_to "Edit", edit_post_path(post) %>
+									<%= link_to "Delete", post, method: :delete, data: {confirm: "Are you sure you want to delete this post?"} %>
+								<%end%>
+
+							</div>
 						<%end%>
-
-					</div>
-				<%end%>
-			</div>
+					<%end%>
+				</div>
 		</div>
+
+		
 
 		<!-- PORTION WHERE THE ADS AND WIDGETS ARE LOCATED -->
 		<div class="col-sm-4 no-padding">

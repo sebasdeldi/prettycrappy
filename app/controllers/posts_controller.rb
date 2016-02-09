@@ -6,6 +6,8 @@
 #  body       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
+#  category   :string
 #
 
 class PostsController < ApplicationController
@@ -20,8 +22,13 @@ class PostsController < ApplicationController
 		@post = Post.new
 	end
 
+	def show
+		@post = Post.find(params[:id])
+	end
+
 	def create
 		@post = Post.new(post_params)
+		@post.user = current_user
 		if @post.save
 			redirect_to root_path
 		else
@@ -50,6 +57,6 @@ class PostsController < ApplicationController
 
 	private
 		def post_params
-			params.require(:post).permit(:body)
+			params.require(:post).permit(:body,:category)
 		end
 end

@@ -2,7 +2,9 @@
 
 	<div class="user-global">
 		<div class="user-info">
-			<h4>Logged as <%= current_user.username%></h4>
+
+			<h4>Logged as <%= current_user.username%>  <i class= <%= sex_icon %>> </i> </h4>
+			
 			<center><img src="<%= Gravatar.new("#{current_user.email}").image_url %>" class="img-circle" /></center>
 		</div>
 
