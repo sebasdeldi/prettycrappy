@@ -13,9 +13,10 @@
 
 class User < ActiveRecord::Base
 	has_secure_password validations: false
-	validates :email, uniqueness: true, format: /@/
+	validates :sex, presence: true
+	validates :email, uniqueness: true, format: /@/, presence: true
 	validates :password, presence: true, on: :create
-	validates :username, presence: true
+	validates :username, presence: true, uniqueness: true
 	validates :password, length: { in: 6..20 }, allow_nil: true
 	has_many :posts
 	has_many :comments

@@ -8,28 +8,44 @@
 			<div class="posts-portion ">
 				
 				<div class="post-container hyphenate">
+					
+					<div class="post-info">
+						<% if @post.user.nil?  %>
+	
+							<p>Posted by <%= @post.alias%> <span class="slash"> / </span> <%= @post.sex.capitalize%> <span class="slash"> / </span> <%= @post.category %> <span class="slash"> / </span> <%= @post.created_at%></p>
+							
+						<%else%>
+							
+							<p>Posted by <%= @post.user.username%> <span class="slash"> / </span> <%= @post.user.sex.capitalize%> <span class="slash"> / </span> <%= @post.category %> <span class="slash"> / </span> <%= @post.created_at%></p>
+						<%end%>
+					</div>
+
 					<%= @post.body %>
+					
 				</div>
+
+				<div class="comments-section">
+					<% @post.comments.reverse_order.each do |comment| %>
+					  <div class="panel panel-default">
+					    <header class="panel-heading"><img src="<%= Gravatar.new("#{comment.user.email}").image_url %>" class="img-circle" /> <b><%= comment.user.username %></b>  <b>Rank: </b></header>
+					    <div class="panel-body"><%= comment.body %></div>
+					  </div>
+					<% end %>
+
+					<% if signed_in? %>
+					  <%= form_for [@post, @post.comments.build] do |f| %>
+					    <div class="form-group">
+					      <%= f.text_area :body, class: "form-control", placeholder: "Agregar comentario" %>
+					    </div>
+
+					    <div class="actions text-right">
+					      <%= f.submit "Comment", class: "btn btn-orange" %>
+					    </div>
+					  <% end %>
+					<% end %>
+				</div>
+				
 			</div>
-
-			<% @post.comments.each do |comment| %>
-			  <div class="panel panel-default">
-			    <header class="panel-heading"><img src="<%= Gravatar.new("#{comment.user.email}").image_url %>" class="img-circle" /> <%= comment.user.username %></header>
-			    <div class="panel-body"><%= comment.body %></div>
-			  </div>
-			<% end %>
-
-			<% if signed_in? %>
-			  <%= form_for [@post, @post.comments.build] do |f| %>
-			    <div class="form-group">
-			      <%= f.text_area :body, class: "form-control", placeholder: "Agregar comentario" %>
-			    </div>
-
-			    <div class="actions text-right">
-			      <%= f.submit "Comentar", class: "btn btn-primary" %>
-			    </div>
-			  <% end %>
-			<% end %>
 
 		</div>
 

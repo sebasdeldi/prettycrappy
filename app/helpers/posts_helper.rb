@@ -8,6 +8,8 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #  category   :string
+#  alias      :string
+#  sex        :string
 #
 
 module PostsHelper

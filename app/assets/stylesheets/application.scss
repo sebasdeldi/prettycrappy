@@ -7,7 +7,7 @@
 
 $primary-color: #303030;
 $secondary-color: #48494e;
-$dark-orange: #EF6D3B;
+$dark-orange: #FF4400;
 $light-orange: white;
 $nice-green: green;
 $combine-white: #a1a1a1;
@@ -19,21 +19,20 @@ $combine-white: #a1a1a1;
 
 body{
 
+	.btn-orange{background-color: $dark-orange;
+		color: $primary-color;}
+
 	.lbl{
 		color: white;
 	}
 
-	.fa fa-mars, .fa fa-venus, .fa fa-transgender-alt{
+	.fa .fa-mars, .fa-venus, .fa-transgender-alt{
 		font-size: 30px;
+		margin-left: 20px;
 	}
 
 	.body-text{
 		color:white;
-	}
-
-	.body-text:hover{
-		font-weight: bold;
-		text-decoration: none;
 	}
 
 	.alert-danger{
@@ -83,6 +82,33 @@ body{
 				margin-bottom: 20px;
 				padding: 15px;
 				border-radius: 4px;
+				.slash{
+					color: $primary-color;
+					font-weight: bold;
+				}
+
+				/*THIS PART, CREATES THE COMMENTS COUNT BUBBLE*/
+
+				.comment-tag {
+				    position: absolute;
+				    width: 42px;
+				    height: 36px;
+				    background: transparent url(comments-box.png) top left;
+			   	 	margin-left: -28px;
+				    margin-top: -25px;
+				    background-position: -155px 0px;
+
+				    .comment-count{
+				    	margin-left: 15px;
+				    	margin-top: 7px;
+				    	color: $primary-color;
+				    	font-weight: bold;
+				    }
+
+				}
+
+
+
 			}
 
 			.for-posts{
@@ -98,7 +124,7 @@ body{
 				padding-left: 25px;
 				padding-right: 25px;
 				background-color: $secondary-color;
-				height: 395px;
+				height: 425px;
 
 				a{
 					margin-top: 0px;
@@ -127,7 +153,7 @@ body{
 
 			.widgets-lower{
 				background-color: white;
-				height: 700px;
+				height: 670px;
 			}
 		}
 

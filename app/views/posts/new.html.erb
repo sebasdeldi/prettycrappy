@@ -1,1 +1,76 @@
-<%= render 'form' %>
+<% if signed_in? %>
+	<%= render 'form' %>
+<%else%>
+	
+
+
+
+	<div class="row">
+		<div class="main-container">
+			<div class="col-sm-8 no-padding">
+				<!--INVALID FORM INPUTS HANDLING -->
+				<% if @post.errors.any? %>
+				  <div class="alert alert-danger">
+				    <ul>
+				    <% @post.errors.full_messages.each do |msg| %>
+				      <li><%= msg %></li>
+				    <% end %>
+				    </ul>
+				  </div>
+				<% end %>
+
+
+				<%=form_for @post do |f|%>
+					<div class="posts-portion ">
+						<h1><%= form_title %></h1>
+						<div class="form-group">
+							<%= f.text_area :body, class: "form-control input-lg for-posts", placeholder: "Tell us your story! (max 700 characters)", maxlength: "700" %>
+						</div>
+
+						<div class="form-group">
+							<%= f.label "Category"%>
+
+							<%= f.select :category, options_for_select([['Friendship','Friendship'], ['Love','Love'], ['Money', 'Money'], ['School','School'], ['Hot','Hot'], ['Health', 'Health'], ['Family', 'Family'], ['Work', 'Work'], ['Others', 'Others']]),{include_blank: true}, class: "lbl" %>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :alias, class: "form-control input-lg", value: "Anonymous" %>
+						</div>
+
+						<div class="form-group">
+							<%= f.radio_button :sex, 'male'%>
+							<%= label :sex_male, 'Male', class: 'lbl' %>
+							<%= f.radio_button :sex, 'female'%>
+							<%= label :sex_female, 'Female',  class: 'lbl' %>
+							<%= f.radio_button :sex, 'other'%>
+							<%= label :sex_other, 'Other',  class: 'lbl' %>
+						</div>
+
+					
+						<%= f.submit form_title, class: "btn btn-lg btn-block btn-grey" %>
+
+					</div>
+				<%end%>
+			</div>
+
+			<!--SPACE FOR ADS AND WIDGETS-->
+			<div class="col-sm-4 no-padding">
+				<div class="widgets-portion">
+					<div class="widgets-upper">
+						<%= render 'login_widget' %>
+					</div>
+
+					<div class="widgets-lower">
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+
+		
+	</div>
+
+
+<%end%>

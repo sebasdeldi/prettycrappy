@@ -8,8 +8,26 @@
 					<% @posts.each do |post| %>
 						<%= link_to post, :class => "body-text" do%>
 							<div class="post-container hyphenate">
+
+								<div class="comment-tag">
+									<p class="comment-count"><%= post.comments.count %></p>
+								</div>
+
+								<div class="post-info">
+									<% if post.user.nil?  %>
+						
+										<p>Posted by <%= post.alias%> <span class="slash"> / </span> <%= post.sex.capitalize%> <span class="slash"> / </span> <%= post.category %> <span class="slash"> / </span> <%= post.created_at%></p>
+									<%else%>
+										
+										<p>Posted by <%= post.user.username%> <span class="slash"> / </span> <%= post.user.sex.capitalize%> <span class="slash"> / </span> <%= post.category %> <span class="slash"> / </span> <%= post.created_at%></p>
+									<%end%>
+									
+								</div>
+
 								<%= post.body %>
-								<%= post.category %>
+								
+								
+
 								<% if signed_in? && post.user == current_user %>
 
 									<%= link_to "Edit", edit_post_path(post) %>

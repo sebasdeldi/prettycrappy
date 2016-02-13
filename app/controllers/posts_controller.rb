@@ -8,6 +8,8 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #  category   :string
+#  alias      :string
+#  sex        :string
 #
 
 class PostsController < ApplicationController
@@ -57,6 +59,6 @@ class PostsController < ApplicationController
 
 	private
 		def post_params
-			params.require(:post).permit(:body,:category)
+			params.require(:post).permit(:body,:category,:alias,:sex)
 		end
 end

@@ -14,11 +14,11 @@
 module UsersHelper
 	def sex_icon
 		if current_user.sex == 'male' 
-		  "fa fa-mars"
+		  'fa fa-mars'
 		elsif current_user.sex == 'female'
-		  "fa fa-venus"
+		  'fa fa-venus'
 		elsif current_user.sex == 'other'
-		  "fa fa-transgender-alt"
+		  'fa fa-transgender-alt'
 		end
 	end
 end
