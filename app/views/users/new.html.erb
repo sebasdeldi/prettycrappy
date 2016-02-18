@@ -33,7 +33,8 @@
 					</div>
 
 					<div class="form-group">
-						
+						<%= f.label(:sex, "Sex", class: 'lbl') %>
+						<br> 
 						<%= f.radio_button :sex, 'male'%>
 						<%= label :sex_male, 'Male', class: 'lbl' %>
 						<%= f.radio_button :sex, 'female'%>
@@ -56,7 +57,7 @@
 				</div>
 
 				<div class="widgets-lower">
-					
+					<%= render 'categories_widget' %>
 				</div>
 				
 			</div>

@@ -2,14 +2,14 @@
 #
 # Table name: posts
 #
-#  id         :integer          not null, primary key
-#  body       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
-#  category   :string
-#  alias      :string
-#  sex        :string
+#  id          :integer          not null, primary key
+#  body        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer
+#  alias       :string           default("Anonymous")
+#  sex         :string           default("Other")
+#  category_id :integer
 #
 
 require 'test_helper'

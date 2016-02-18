@@ -4,8 +4,18 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   root 'posts#index'
+  get 'posts/friendship' => 'posts#friendship'
+  get 'posts/love' => 'posts#love'
+  get 'posts/money' => 'posts#money'
+  get 'posts/school' => 'posts#school'
+  get 'posts/hot' => 'posts#hot'
+  get 'posts/health' => 'posts#health'
+  get 'posts/family' => 'posts#family'
+  get 'posts/work' => 'posts#work'
+  get 'posts/others' => 'posts#others'
   resources :posts
   resources :users, only: [:new, :create]
+
 
   resources :posts do
     resources :comments, only: [:create]

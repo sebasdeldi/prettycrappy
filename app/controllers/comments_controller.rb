@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 	def create
 	  post = Post.find(params[:post_id])
 	  post.comments.create(comments_params)
-
+	  Comment.paginate(:page => params[:page], :per_page => 3)
 	  redirect_to post
 	end
 

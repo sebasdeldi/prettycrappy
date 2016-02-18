@@ -2,14 +2,14 @@
 #
 # Table name: posts
 #
-#  id         :integer          not null, primary key
-#  body       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
-#  category   :string
-#  alias      :string
-#  sex        :string
+#  id          :integer          not null, primary key
+#  body        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer
+#  alias       :string           default("Anonymous")
+#  sex         :string           default("Other")
+#  category_id :integer
 #
 
 class PostsController < ApplicationController
@@ -17,7 +17,43 @@ class PostsController < ApplicationController
 	before_action :private_access, only: [:edit, :destroy, :delete]
 
 	def index
-		@posts = Post.all.reverse_order
+		@posts = Post.all.reverse_order.paginate(:page => params[:page], :per_page => 10)
+	end
+
+	def friendship
+		@friendship_posts = Post.where(category_id: 1)
+	end
+
+	def love
+		@love_posts = Post.where(category_id: 2)
+	end
+
+	def money
+		@money_posts = Post.where(category_id: 3)
+	end
+
+	def school
+		@school_posts = Post.where(category_id: 4)
+	end
+
+	def hot
+		@hot_posts = Post.where(category_id: 5)
+	end
+
+	def health
+		@health_posts = Post.where(category_id: 6)
+	end
+
+	def family
+		@ffamily_posts = Post.where(category_id: 7)
+	end
+
+	def work
+		@work_posts = Post.where(category_id: 8)
+	end
+
+	def others
+		@others_posts = Post.where(category_id: 9)
 	end
 
 	def new
@@ -59,6 +95,10 @@ class PostsController < ApplicationController
 
 	private
 		def post_params
-			params.require(:post).permit(:body,:category,:alias,:sex)
+
+		
+			params.require(:post).permit(:body,:category_id,:alias,:sex)
+
+			
 		end
 end

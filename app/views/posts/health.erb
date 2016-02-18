@@ -1,0 +1,66 @@
+
+<div class="row">
+
+	<div class="main-container">
+		<!-- PORTION WHERE ALL THE POSTS ARE CONTAINED -->
+		<div class="col-sm-8 no-padding">
+
+				<div class="posts-portion ">
+					<% @health_posts.each do |post| %>
+						<%= link_to post, :class => "body-text" do%>
+							<div class="post-container hyphenate">
+
+								<div class="comment-tag">
+									<p class="comment-count"><%= post.comments.count %></p>
+								</div>
+
+								<div class="post-info">
+									<% if post.user.nil?  %>
+						
+										<p>Posted by <%= post.alias%> <span class="slash"> / </span> <%= post.sex %> <span class="slash"> / </span> <%= category_name %> <span class="slash"> / </span> <%= post.created_at%></p>
+									<%else%>
+										
+										<p>Posted by <%= post.user.username%> <span class="slash"> / </span> <%= post.user.sex.capitalize%> <span class="slash"> / </span> <%= category_name %> <span class="slash"> / </span> <%= post.created_at%></p>
+									<%end%>
+								</div>
+
+								<%= post.body %>
+								
+								
+
+								<% if signed_in? && post.user == current_user %>
+
+									<%= link_to "[Edit]", edit_post_path(post) %>
+									<%= link_to "[Delete]", post, method: :delete, data: {confirm: "Are you sure you want to delete this post?"} %>
+								<%end%>
+
+								<div class="btn"></div>
+
+							</div>
+						<%end%>
+					<%end%>
+				</div>
+		</div>
+		
+		
+
+		<!-- PORTION WHERE THE ADS AND WIDGETS ARE LOCATED -->
+		<div class="col-sm-4 no-padding">
+			<div class="widgets-portion">
+
+				<div class="widgets-upper">
+					<%= render 'login_widget' %>
+				</div>
+
+
+				<div class="widgets-lower">
+					<%= render 'categories_widget' %>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
+

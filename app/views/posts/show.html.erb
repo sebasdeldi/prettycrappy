@@ -35,7 +35,7 @@
 					<% if signed_in? %>
 					  <%= form_for [@post, @post.comments.build] do |f| %>
 					    <div class="form-group">
-					      <%= f.text_area :body, class: "form-control", placeholder: "Agregar comentario" %>
+					      <%= f.text_area :body, class: "form-control", placeholder: "Comment! (max 250 characters)", maxlength: "250" %>
 					    </div>
 
 					    <div class="actions text-right">
@@ -57,7 +57,7 @@
 				</div>
 
 				<div class="widgets-lower">
-					
+					<%= render 'categories_widget' %>
 				</div>
 				
 			</div>
