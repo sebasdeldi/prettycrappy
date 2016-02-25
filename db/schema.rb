@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217234409) do
+ActiveRecord::Schema.define(version: 20160219162702) do
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -30,14 +30,26 @@ ActiveRecord::Schema.define(version: 20160217234409) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "deserveds", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "deserveds", ["post_id"], name: "index_deserveds_on_post_id"
+  add_index "deserveds", ["user_id"], name: "index_deserveds_on_user_id"
+
   create_table "posts", force: :cascade do |t|
     t.string   "body"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "user_id"
-    t.string   "alias",       default: "Anonymous"
-    t.string   "sex",         default: "Other"
+    t.string   "alias",           default: "Anonymous"
+    t.string   "sex",             default: "Other"
     t.integer  "category_id"
+    t.integer  "votes_count",     default: 0
+    t.integer  "deserveds_count", default: 0
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
@@ -47,9 +59,24 @@ ActiveRecord::Schema.define(version: 20160217234409) do
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "sex"
+    t.integer  "rank",            default: 0
+    t.integer  "comments_count",  default: 0
+    t.integer  "posts_count",     default: 0
+    t.integer  "votes_count",     default: 0
+    t.integer  "deserveds_count", default: 0
   end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "votes", ["post_id"], name: "index_votes_on_post_id"
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end

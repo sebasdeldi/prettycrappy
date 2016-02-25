@@ -13,11 +13,16 @@ Rails.application.routes.draw do
   get 'posts/family' => 'posts#family'
   get 'posts/work' => 'posts#work'
   get 'posts/others' => 'posts#others'
+  get 'posts/random' => 'posts#random'
+  get 'posts/funniest' => 'posts#funniest'
+  get 'posts/deserved' => 'posts#deserved'
   resources :posts
   resources :users, only: [:new, :create]
 
 
   resources :posts do
+    resource :vote, only: [:create, :destroy]
+    resource :deserved, only: [:create, :destroy]
     resources :comments, only: [:create]
   end
 

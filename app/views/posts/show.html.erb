@@ -4,7 +4,8 @@
 
 <div class="row">
 	<div class="main-container">
-		<div class="col-sm-8 no-padding">
+		<div class="col col-sm-8 no-padding">
+
 			<div class="posts-portion ">
 				
 				<div class="post-container hyphenate">
@@ -12,11 +13,11 @@
 					<div class="post-info">
 						<% if @post.user.nil?  %>
 	
-							<p>Posted by <%= @post.alias%> <span class="slash"> / </span> <%= @post.sex.capitalize%> <span class="slash"> / </span> <%= @post.category %> <span class="slash"> / </span> <%= @post.created_at%></p>
+							<p>Posted by <%= @post.alias%> <span class="slash"> / </span> <%= @post.sex.capitalize%> <span class="slash"> / </span> <%=  category_name(@post)  %> <span class="slash"> / </span> <%= @post.created_at%></p>
 							
 						<%else%>
 							
-							<p>Posted by <%= @post.user.username%> <span class="slash"> / </span> <%= @post.user.sex.capitalize%> <span class="slash"> / </span> <%= @post.category %> <span class="slash"> / </span> <%= @post.created_at%></p>
+							<p>Posted by <%= @post.user.username%> <span class="slash"> / </span> <%= @post.user.sex.capitalize%> <span class="slash"> / </span> <%=  category_name(@post) %> <span class="slash"> / </span> <%= @post.created_at%></p>
 						<%end%>
 					</div>
 
@@ -25,9 +26,10 @@
 				</div>
 
 				<div class="comments-section">
+
 					<% @post.comments.reverse_order.each do |comment| %>
 					  <div class="panel panel-default">
-					    <header class="panel-heading"><img src="<%= Gravatar.new("#{comment.user.email}").image_url %>" class="img-circle" /> <b><%= comment.user.username %></b>  <b>Rank: </b></header>
+					    <header class="panel-heading"><img src="<%= Gravatar.new("#{comment.user.email}").image_url %>" class="img-circle" /> <b><%= comment.user.username %></b>  <b>Rank: <%=comment.user.rank%></b></header>
 					    <div class="panel-body"><%= comment.body %></div>
 					  </div>
 					<% end %>
@@ -42,6 +44,8 @@
 					      <%= f.submit "Comment", class: "btn btn-orange" %>
 					    </div>
 					  <% end %>
+					<% else %>
+						<center><span class="comment-no-logged-msg">You need to be registered and logged in, to post a comment!</span></center>
 					<% end %>
 				</div>
 				
@@ -50,7 +54,7 @@
 		</div>
 
 		<!--SPACE FOR ADS AND WIDGETS-->
-		<div class="col-sm-4 no-padding">
+		<div class="col col-sm-4 no-padding">
 			<div class="widgets-portion">
 				<div class="widgets-upper">
 					<%= render 'login_widget' %>

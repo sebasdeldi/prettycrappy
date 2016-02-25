@@ -7,7 +7,7 @@
 
 	<div class="row">
 		<div class="main-container">
-			<div class="col-sm-8 no-padding">
+			<div class="col col-sm-8 no-padding">
 				<!--INVALID FORM INPUTS HANDLING -->
 				<% if @post.errors.any? %>
 				  <div class="alert alert-danger">
@@ -61,7 +61,7 @@
 			</div>
 
 			<!--SPACE FOR ADS AND WIDGETS-->
-			<div class="col-sm-4 no-padding">
+			<div class="col col-sm-4 no-padding">
 				<div class="widgets-portion">
 					<div class="widgets-upper">
 						<%= render 'login_widget' %>

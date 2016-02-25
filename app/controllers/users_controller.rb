@@ -9,11 +9,16 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  sex             :string
+#  rank            :integer          default(0)
+#  comments_count  :integer          default(0)
+#  posts_count     :integer          default(0)
+#  votes_count     :integer          default(0)
+#  deserveds_count :integer          default(0)
 #
 
 class UsersController < ApplicationController
 
-	
+
 
 	def new
 		@user = User.new
@@ -27,6 +32,7 @@ class UsersController < ApplicationController
 			render :new
 		end
 	end
+
 
 	private
 		def user_params

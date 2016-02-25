@@ -10,9 +10,9 @@
 
 
 		<div class="user-data">
-			<p>Posts  <span class="badge"><%= current_user.posts.count %></span></p>
-			<p>Comments   <span class="badge"><%= current_user.comments.count %></span></p>
-			<p>Rank  <span class="badge"> <%= (current_user.posts.count * 3) + (current_user.comments.count) %> </span></p>
+			<p>Posts  <span class="badge"><%= current_user.posts_count %></span></p>
+			<p>Comments   <span class="badge"><%= current_user.comments_count %></span></p>
+			<p>Rank  <span class="badge"> <%= current_user.rank %> </span></p>
 		</div>
 	</div>
 

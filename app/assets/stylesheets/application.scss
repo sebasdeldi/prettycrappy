@@ -20,6 +20,19 @@ $combine-white: #a1a1a1;
 
 body{
 
+
+
+	.comment-no-logged-msg{
+		color: $primary-color;
+		text-align: center;
+		background-color: $dark-orange;
+		padding: 5px;
+		border-radius: 3px;
+		font-weight: bold;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
 	label{
 		color: white;
 	}
@@ -27,9 +40,14 @@ body{
 	.btn{
 		border-radius: 3px;
 	}
+
 	
-	.btn-orange{background-color: $dark-orange;
-		color: $primary-color;}
+	
+	.btn-orange{
+		background-color: $dark-orange;
+		color: $primary-color;
+		font-weight: bold;
+	}
 
 	.lbl{
 		color: white;
@@ -70,8 +88,47 @@ body{
 		color: $dark-orange;
 	}
 
+	
+	.widgets-sm{
+		margin-top: 0;
+		margin-left: 70px;
+		margin-right: 70px;
+
+		.widgets-footer-position{
+			background-color: red;
+			height: 200px;
+		}
+	}
+
+	@media screen and (min-width: 892px){
+		.widgets-sm{
+			display: none;
+		}
+	}
+
+
+
+	@media screen and (max-width: 697px){
+	  .main-container {
+	  	margin: 0 !important;
+	  }
+
+	  .navbar{
+	  	margin-bottom: 0;
+	  }
+
+	  .widgets-sm {
+	  	margin: 0 !important;
+	  }
+	}
+
 
 	.main-container{
+
+		display: -webkit-flex;		
+		display: -ms-flexbox;		
+		display: flex;
+		overflow: hidden;
 		
 		.no-padding{
 			padding-left: 0px;
@@ -85,10 +142,15 @@ body{
 
 		.posts-portion{
 
-			padding: 50px;
+			padding-top: 50px;
+			padding-left: 50px;
+			padding-right: 50px;
+			padding-bottom: 10px;
 			background-color: $primary-color;
 			height: 100%;
 			/*height: 1275px;*/
+
+
 
 			.pagination {
 			  a {
@@ -112,6 +174,67 @@ body{
 				margin-bottom: 20px;
 				padding: 15px;
 				border-radius: 4px;
+				text-align: justify;
+
+
+				/*VOTES STYLING*/
+
+				.post-buttoms{
+					margin-top: 15px;
+					font-weight: bold;
+					
+
+
+
+					.btn-votes{
+						padding-top: 0;
+						padding-bottom: 0;
+						margin-right: 10px;
+						background-color: $primary-color;
+
+						.upvote-count { 
+							color: $dark-orange;
+						}	
+					}
+
+					.btn-deserved{
+						padding-top: 0;
+						padding-bottom: 0;
+						margin-right: 10px;
+						background-color: $primary-color;
+
+						.upvote-count { 
+							color: $dark-orange;
+						}	
+					}
+
+					.btn-comment{
+						padding-top: 0;
+						padding-bottom: 0;
+						background-color: $dark-orange;
+						color: $primary-color;
+						font-weight: bold;
+					}
+
+					.post-upvote {
+					  
+					  &.upvote-active {
+					    .btn-votes{
+					    	border-color: $dark-orange;
+					    }
+					    .btn-deserved{
+					    	border-color: $dark-orange;
+					    }
+					    .upvote-count { 
+					    	
+					    	font-weight: bold;
+					    }
+					  
+					  }
+					}
+
+				}
+
 				.slash{
 					color: $primary-color;
 					font-weight: bold;
@@ -151,7 +274,43 @@ body{
 			}
 		}
 
+		@media screen and (max-width: 892px ){
+			
+			.col-sm-3{
+				display: none;
+			}
+
+			.col-sm-9{
+				width: 100%;
+			}
+		}
+
+
+		
+
 		.widgets-portion{
+
+			@media screen and  (max-width: 930px) {
+				.user-data{
+					display:none;
+				}
+
+				.widgets-upper{
+					height: 330px !important;
+
+					.btn{
+						font-size: 15px;
+					}
+
+					p{
+						margin-top: 0 !important;
+						font-size: 13px !important;
+					}
+				}
+			}
+
+			
+
 	
 			.widgets-upper{
 				padding-top: 10px;
@@ -177,6 +336,7 @@ body{
 
 				.btn-grey{
 					background-color: $dark-orange;
+					font-weight: bold;
 				}
 
 				.btn-grey:hover{
@@ -185,9 +345,61 @@ body{
 				}
 			}
 
+			
+
 			.widgets-lower{
+
+			
+
+				/*@media screen and (max-width: 925px ){
+					
+					a{
+						font-size: 15px;
+					}
+				}
+
+				@media screen and (max-width: 1096px ){
+					
+					.social{
+						display: none;
+					}
+				}*/
+
+
 				background-color: white;
-				height: 850px;
+
+				.social{
+					p{
+						font-size: 18px;
+						font-weight: bold;
+						color: $dark-orange;
+					}
+					span{
+						margin-top: 10px;
+					}
+					font-size: 18px;
+					font-weight: bold;
+					background-color: $primary-color;
+					padding: 25px;
+					margin-right: 20px;
+					margin-left: 20px;
+					border-radius: 3px;
+					margin-bottom:20px;
+
+					@media screen and (min-width: 1100px){
+					  .social-no-counter {
+					  	display: none;
+					  }
+					}
+
+					@media screen and (max-width: 1100px){
+					  .social-counter {
+					  	display: none;
+					  }
+					}
+
+
+				}
 				.categories{
 					font-size: 18px;
 					font-weight: bold;
@@ -198,10 +410,26 @@ body{
 				}
 			}
 		}
-
-
+		
 	}
 
+
+	
+
+	.main-container .col:nth-child(1) { 
+	  background: $primary-color;
+	  -webkit-order: 0; 
+	      -ms-flex-order: 0; 
+	          order: 0;
+	}
+
+
+	.main-container .col:nth-child(2) { 
+	  background: white;
+	  -webkit-order: 0; 
+	      -ms-flex-order: 0; 
+	          order: 0;
+	}
 	
 
 
@@ -267,13 +495,12 @@ body{
 		background-color: $primary-color;
 		border: 0px;
 		padding: 0;
-		height: 60px;
 
 		.navbar-brand{
 			font-size: 30px;
 			font-family: 'Candal', sans-serif;
 			color: $light-orange;
-			margin-top: 3px;
+			margin-bottom: 3px;
 			.dark-orange{color: $dark-orange;}			
 		}
 
@@ -299,9 +526,14 @@ body{
 
 		/*ALL THIS MEDIA QUERY FIXES THE NAVBAR CRAZY CHANGE FOR WIDHTS BELLOW 990PX*/
 
-		@media (max-width: 990px) {
+		
+
+		@media screen and (max-width: 995px) {
 		    .navbar-header {
 		        float: none;
+		    }
+		    .navbar-left,.navbar-right {
+		        float: none !important;
 		    }
 		    .navbar-toggle {
 		        display: block;
@@ -310,12 +542,16 @@ body{
 		        border-top: 1px solid transparent;
 		        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
 		    }
+		    .navbar-fixed-top {
+		        top: 0;
+		        border-width: 0 0 1px;
+		    }
 		    .navbar-collapse.collapse {
 		        display: none!important;
 		    }
 		    .navbar-nav {
 		        float: none!important;
-		        margin: 7.5px -15px;
+		        margin-top: 7.5px;
 		    }
 		    .navbar-nav>li {
 		        float: none;
@@ -324,7 +560,26 @@ body{
 		        padding-top: 10px;
 		        padding-bottom: 10px;
 		    }
+		    .collapse.in{
+		        display:block !important;
+		    }
+		   .navbar-nav .open .dropdown-menu {
+		       position: static;
+		       float: none;
+		       width: auto;
+		       margin-top: 0;
+		       background-color: transparent;
+		       border: 0;
+		       -webkit-box-shadow: none;
+		       box-shadow: none;
+		    }
 		}
+	}
+
+	@media screen and (max-width: 697px){
+	  footer {
+	  	margin: 0 !important;
+	  }
 	}
 
 	footer{

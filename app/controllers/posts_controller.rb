@@ -2,58 +2,72 @@
 #
 # Table name: posts
 #
-#  id          :integer          not null, primary key
-#  body        :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :integer
-#  alias       :string           default("Anonymous")
-#  sex         :string           default("Other")
-#  category_id :integer
+#  id              :integer          not null, primary key
+#  body            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :integer
+#  alias           :string           default("Anonymous")
+#  sex             :string           default("Other")
+#  category_id     :integer
+#  votes_count     :integer          default(0)
+#  deserveds_count :integer          default(0)
 #
 
 class PostsController < ApplicationController
 
 	before_action :private_access, only: [:edit, :destroy, :delete]
 
+	def funniest
+		@funniest = Post.best.paginate(:page => params[:page], :per_page => 6)
+	end
+
+	def deserved
+		@deserved  = Post.deserved.paginate(:page => params[:page], :per_page => 6)
+	end
+
 	def index
-		@posts = Post.all.reverse_order.paginate(:page => params[:page], :per_page => 10)
+		@posts = Post.all.reverse_order.paginate(:page => params[:page], :per_page => 6)
+	end
+
+	def random
+		@random_posts = Post.all.order('random()').paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def friendship
-		@friendship_posts = Post.where(category_id: 1)
+		@friendship_posts = Post.where(category_id: 1).paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def love
-		@love_posts = Post.where(category_id: 2)
+		@love_posts = Post.where(category_id: 2).paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def money
-		@money_posts = Post.where(category_id: 3)
+		@money_posts = Post.where(category_id: 3).paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def school
-		@school_posts = Post.where(category_id: 4)
+		@school_posts = Post.where(category_id: 4).paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def hot
-		@hot_posts = Post.where(category_id: 5)
+		@hot_posts = Post.where(category_id: 5).paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def health
-		@health_posts = Post.where(category_id: 6)
+		@health_posts = Post.where(category_id: 6).paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def family
-		@ffamily_posts = Post.where(category_id: 7)
+		@family_posts = Post.where(category_id: 7).paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def work
-		@work_posts = Post.where(category_id: 8)
+		@work_posts = Post.where(category_id: 8).paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def others
-		@others_posts = Post.where(category_id: 9)
+		@others_posts = Post.where(category_id: 9).paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def new

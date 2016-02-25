@@ -9,6 +9,11 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  sex             :string
+#  rank            :integer          default(0)
+#  comments_count  :integer          default(0)
+#  posts_count     :integer          default(0)
+#  votes_count     :integer          default(0)
+#  deserveds_count :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -20,5 +25,12 @@ class User < ActiveRecord::Base
 	validates :password, length: { in: 6..20 }, allow_nil: true
 	has_many :posts
 	has_many :comments
-	# has_many :votes
+	has_many :votes
+	has_many :deserveds
+
+	def rank
+		rank = (comments_count + (posts_count * 2) + votes_count + deserveds_count)
+	end
 end
+
+

@@ -1,8 +1,29 @@
 <br>
 
+<div class="social">
+	<p>Follow us for much more!</p>
+
+  <div class="social-counter">
+    <a class="twitter-follow-button" href="https://twitter.com/PrettyCrappyWeb"></a>
+
+    <span class="ig-follow" data-id="b9045cae8f" data-handle="prettycrappy" data-count="true" data-size="medium" data-username="true"></span>
+  </div>
+
+  <div class="social-no-counter">
+
+    <a class="twitter-follow-button" href="https://twitter.com/PrettyCrappyWeb" data-show-count="false" data-show-screen-name="false"></a>
+    <br>
+    <span class="ig-follow" data-id="b9045cae8f" data-handle="prettycrappy" data-count="false" data-size="medium" data-username="false"></span>
+
+  </div>
+	
+</div>
+
 <ul class="categories"> 
 
-  <li><%= link_to("Friendship", posts_friendship_path , class: "nav_li")%> </li>
+
+
+  <li><%= link_to("Friends", posts_friendship_path , class: "nav_li")%> </li>
   <li><%= link_to("Love", posts_love_path , class: "nav_li")%></li>
   <li><%= link_to("Money", posts_money_path , class: "nav_li")%> </li>
   <li><%= link_to("School", posts_school_path , class: "nav_li")%></li>
@@ -11,4 +32,5 @@
   <li><%= link_to("Family", posts_family_path , class: "nav_li")%> </li>
   <li><%= link_to("Work", posts_work_path , class: "nav_li")%></li>
   <li><%= link_to("Others", posts_others_path , class: "nav_li")%> </li>
+  	
 </ul>

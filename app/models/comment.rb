@@ -12,5 +12,15 @@
 
 class Comment < ActiveRecord::Base
   belongs_to :post
-  belongs_to :user
+  belongs_to :user, counter_cache: true
+
+  after_save :call_rank
+  
+  def call_rank
+  	if user != nil
+  		user.rank
+  		user.update(rank:user.rank)
+  	end
+  end
+  
 end
