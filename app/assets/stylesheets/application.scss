@@ -18,7 +18,73 @@ $combine-white: #a1a1a1;
 
 
 
+.container-wh{
+	margin-top: 55px;
+	background-color:white;
+	margin-left: 55px;
+    margin-right: 55px;
+    padding:30px;
+}
+
+html{
+	overflow-x:hidden;
+	width:100%;
+}
+
+
 body{
+
+
+
+	@media screen and (max-width: 400px){
+		footer{
+			font-size: 11px;
+		}
+	}
+	
+	.ig-follow{
+		margin-bottom: 10px;
+
+	}
+
+	.social{
+		p{
+			font-size: 18px;
+			font-weight: bold;
+			color: $dark-orange;
+		}
+		span{
+			margin-top: 10px;
+		}
+		font-size: 18px;
+		font-weight: bold;
+		background-color: $primary-color;
+		padding: 25px;
+		margin-right: 20px;
+		margin-left: 20px;
+		border-radius: 3px;
+		margin-bottom:20px;
+
+		@media screen and (min-width: 1100px){
+		  .social-no-counter {
+		  	display: none;
+		  }
+		}
+
+		@media screen and (max-width: 1100px){
+		  .social-counter {
+		  	display: none;
+		  }
+		}
+	}
+	@media screen and (max-width: 893px){
+		.social {
+		
+			padding-top: 15px;
+			margin-top:0;
+		}
+	}
+
 
 
 
@@ -81,6 +147,7 @@ body{
 
 	.btn-grey{
 		background-color: $dark-orange;
+		margin-bottom: 35px;
 	}
 
 	.btn-grey:hover{
@@ -88,25 +155,194 @@ body{
 		color: $dark-orange;
 	}
 
-	
-	.widgets-sm{
-		margin-top: 0;
-		margin-left: 70px;
-		margin-right: 70px;
+	.lower{
 
-		.widgets-footer-position{
-			background-color: red;
-			height: 200px;
+
+
+		li{
+			font-weight: bold;
 		}
-	}
-
-	@media screen and (min-width: 892px){
 		.widgets-sm{
-			display: none;
+			margin-top: 0;
+			margin-left: 70px;
+			margin-right: 70px;
+
+			
+			
+			
+
+			.widgets-footer-position{
+
+
+
+
+
+				.user-info-lower{
+				
+					padding-top: 20px;
+					padding-left: 1%;
+
+					p{font-weight: bold; margin-bottom: 10px;}
+
+					h4{
+						color: $primary-color;
+						font-weight: bold;
+					}
+
+					img{
+						margin-bottom: 20px;
+					}
+
+					a{
+					
+						color: $primary-color;
+						font-weight: bold;
+					}
+
+					a:hover{
+						color: white;
+					}
+				}
+
+				.no-padding{
+					padding: 0;
+				}
+
+				display: -webkit-flex;		
+				display: -ms-flexbox;		
+				display: flex;
+				overflow: hidden;
+
+
+
+
+				.user-lower{
+
+					@media screen and (max-width: 496px) {
+						img{
+							width:55px;
+							height: 55px;
+						}
+
+						h4{
+							font-size: 12px;
+							font-weight: bold;
+						}
+
+						p{
+							font-size: 12px;
+							font-weight: bold;
+						}
+					}
+
+
+					.log-or-reg{
+						padding-top: 60px;
+						padding-left: 20px;
+						padding-right: 20px;
+
+						a{
+							color: $primary-color;
+							font-weight: bold;
+							font-size: 18px;
+
+						}
+
+						a:hover{
+							color: white;
+						}
+
+						p{
+							margin-top: 20px;
+							font-weight: bold;
+							font-size: 18px;
+							color: white;
+						}
+					}
+
+					background-color: $dark-orange;
+					-webkit-order: 0; 
+					    -ms-flex-order: 0; 
+					        order: 0;
+				}
+
+
+
+
+				.social-lower{
+					padding-top: 5px;
+					background-color: white;
+					-webkit-order: 0; 
+					    -ms-flex-order: 0; 
+					        order: 0;
+					
+					        
+							
+							.social{
+								padding-left: 0;
+								padding-right: 0;
+			
+							}
+					        @media screen and (max-width: 496px) {
+					        	.social p{
+					        		font-size: 12px;
+					        	}
+					        }
+
+
+					        @media screen and (max-width: 409px) {
+					        	.social p{
+					        		font-size: 11px;
+					        	}
+					        }
+
+
+				}
+
+
+				.categories-lower{
+
+
+					@media screen and (max-width: 496px) {
+						a{
+							font-size:11px;
+						}
+
+					
+					}
+
+
+					padding: 20px;
+					background-color: white;
+					-webkit-order: 0; 
+					    -ms-flex-order: 0; 
+					        order: 0;
+
+					a:hover{
+						color: $primary-color;
+					}
+				}
+				
+			}
+		}
+
+		@media screen and (min-width: 892px){
+			.widgets-sm{
+				display: none;
+			}
 		}
 	}
+	
 
+	@media screen and (max-width: 560px){
+		.main-container{
+			font-size: 12px;
+		}
 
+		.post-info{
+			font-size: 10px;
+		}
+	}
 
 	@media screen and (max-width: 697px){
 	  .main-container {
@@ -148,7 +384,13 @@ body{
 			padding-bottom: 10px;
 			background-color: $primary-color;
 			height: 100%;
-			/*height: 1275px;*/
+			
+
+			.post-anon-disclaimer{
+				color: white;
+				margin-bottom: 50px;
+				text-align: justify;
+			}
 
 
 
@@ -179,18 +421,45 @@ body{
 
 				/*VOTES STYLING*/
 
+				
+
 				.post-buttoms{
 					margin-top: 15px;
 					font-weight: bold;
-					
 
+					
+					
+					@media screen and (max-width: 560px) {
+						.btn-votes{
+							font-size: 11px;
+							display: block;
+							margin-bottom: 7px;
+						}
+
+						.btn-deserved{
+							font-size: 11px;
+							display: block;
+							margin-bottom: 7px;
+						}
+
+						.btn-comment{
+							font-size: 11px;
+							display: block;
+
+						}
+					}
+
+
+				
+
+			
 
 
 					.btn-votes{
 						padding-top: 0;
 						padding-bottom: 0;
-						margin-right: 10px;
 						background-color: $primary-color;
+
 
 						.upvote-count { 
 							color: $dark-orange;
@@ -200,7 +469,6 @@ body{
 					.btn-deserved{
 						padding-top: 0;
 						padding-bottom: 0;
-						margin-right: 10px;
 						background-color: $primary-color;
 
 						.upvote-count { 
@@ -290,21 +558,39 @@ body{
 
 		.widgets-portion{
 
-			@media screen and  (max-width: 930px) {
+			@media screen and (min-width: 993px) {
+				.users-data-sm{
+					display:none;
+				}
+			}
+
+			@media screen and  (max-width: 993px) {
 				.user-data{
 					display:none;
 				}
 
+				.users-data-sm{
+					background-color: #48494e;
+					border-radius: 3px;
+					text-align: center;
+					p{
+						color: $dark-orange;
+						font-weight: bold;
+						font-size: 16px;
+					}
+				}
+
 				.widgets-upper{
-					height: 330px !important;
+					height: 350px !important;
 
 					.btn{
 						font-size: 15px;
+						padding-bottom: 0;
 					}
 
 					p{
 						margin-top: 0 !important;
-						font-size: 13px !important;
+						font-size: 13px ;
 					}
 				}
 			}
@@ -317,7 +603,7 @@ body{
 				padding-left: 25px;
 				padding-right: 25px;
 				background-color: $secondary-color;
-				height: 425px;
+				height: 370px;
 
 				a{
 					margin-top: 0px;
@@ -331,7 +617,7 @@ body{
 
 				.color-white{
 					color: white;
-					margin-top: 45px;
+					margin-top: 15px;
 				}
 
 				.btn-grey{
@@ -368,41 +654,12 @@ body{
 
 				background-color: white;
 
-				.social{
-					p{
-						font-size: 18px;
-						font-weight: bold;
-						color: $dark-orange;
-					}
-					span{
-						margin-top: 10px;
-					}
-					font-size: 18px;
-					font-weight: bold;
-					background-color: $primary-color;
-					padding: 25px;
-					margin-right: 20px;
-					margin-left: 20px;
-					border-radius: 3px;
-					margin-bottom:20px;
-
-					@media screen and (min-width: 1100px){
-					  .social-no-counter {
-					  	display: none;
-					  }
-					}
-
-					@media screen and (max-width: 1100px){
-					  .social-counter {
-					  	display: none;
-					  }
-					}
-
-
-				}
+				
+				
 				.categories{
 					font-size: 18px;
 					font-weight: bold;
+					margin-top: 20px;
 				}
 				a:hover{
 					color: $primary-color;
@@ -495,6 +752,9 @@ body{
 		background-color: $primary-color;
 		border: 0px;
 		padding: 0;
+		width: 102%;
+
+
 
 		.navbar-brand{
 			font-size: 30px;

@@ -1,11 +1,19 @@
-
+<%- title "PrettyCrappy | Family" %>
+<% meta description: "PrettyCrappy posts, posted in the family category", keywords: %w(family category posts)%>
 <div class="row">
 
 	<div class="main-container">
 		<!-- PORTION WHERE ALL THE POSTS ARE CONTAINED -->
-		<div class="col col-sm-8 no-padding">
+		<div class="col col-md-8 col-sm-9 col-xs-9 no-padding">
 
 				<div class="posts-portion ">
+
+					<div class="post-anon-disclaimer">
+						<p>Why keep your disgraces to yourself when you can make others laugh? your disgrace may be another person's joy!</p>
+						<p>You don't have to be registered in order to <%=link_to 'Post!', new_post_path %> or Vote!</p>
+					</div>
+
+
 					<% @family_posts.each do |post| %>
 						<%= link_to post, :class => "body-text" do%>
 							<div class="post-container hyphenate">
@@ -92,29 +100,47 @@
 							</div>
 						<%end%>
 					<%end%>
-					<center><%= will_paginate @family_posts %></center>
+					<center><%= will_paginate @family_posts, :previous_label => '←', :next_label => '→' , inner_window: 1, outer_window: 0%></center>
 				</div>
 		</div>
 		
 		
 
-		<!-- PORTION WHERE THE ADS AND WIDGETS ARE LOCATED -->
-		<div class="col col-sm-4 no-padding">
-			<div class="widgets-portion">
+				<!-- PORTION WHERE THE ADS AND WIDGETS ARE LOCATED -->
+				<div class="col col-md-4 col-sm-3 col-xs-3 no-padding">
+					<div class="widgets-portion">
 
-				<div class="widgets-upper">
-					<%= render 'login_widget' %>
+						<div class="widgets-upper">
+							<%= render 'login_widget' %>
+						</div>
+
+
+						<div class="widgets-lower">
+							<%= render 'categories_widget' %>
+							<%= render 'social_widget' %>
+						</div>
+						
+					</div>
 				</div>
+			</div>
+		</div>
 
+<div class="row lower">
+	<div class="widgets-sm">
+		<div class="widgets-footer-position">
+			<div class="col-xs-4 user-lower no-padding">
+				<%= render 'login_mini_widget' %>
+			</div>
 
-				<div class="widgets-lower">
-					<%= render 'categories_widget' %>
-				</div>
-				
+			<div class="col-xs-4 social-lower no-padding">
+				<%= render 'social_widget' %>
+			</div>
+
+			<div class="col-xs-4 categories-lower no-padding">
+				<%= render 'categories_widget' %>
 			</div>
 		</div>
 	</div>
-	
-	
 </div>
+
 

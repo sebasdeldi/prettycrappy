@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FckingLife</title>
+  <title><%= content_for?(:title) ? content_for(:title) : "PrettyCrappy" %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= metamagic %>
 	
+  <meta name="viewport" content="width=device-width; initial-scale = 1.0; maximum-scale=1.0; user-scalable=no" />
+
+  <%= favicon_link_tag 'favicon.ico' %>
+
 
 </head>
 <body>
+	
 	<div class="background-image"></div>
 	<header>
 		<!-- NAVBAR -->
@@ -62,7 +68,7 @@
 <%= yield %>
 
 	<footer>
-		Built by <a href="https://twitter.com/sebasdeldi">Sebastián Delgado</a> - 2016
+		Built by <a href="https://twitter.com/sebasdeldi">Sebastián Delgado</a> - 2016   /   <%=link_to "Terms", terms_path %>  /  <%=link_to "About", about_path %>
 	</footer>
 	
 	<!-- TWITTER WIDGET -->

@@ -3,21 +3,23 @@
 	<div class="user-global">
 		<div class="user-info">
 
-			<h4>Logged as <%= current_user.username%>  <i class= <%= sex_icon %>> </i> </h4>
+			<h4>Logged as <%= current_user.username%>  <i class="<%= sex_icon %>"></i> </h4>
 			
 			<center><img src="<%= Gravatar.new("#{current_user.email}").image_url %>" class="img-circle" /></center>
 		</div>
 
+		<div class="users-data-sm">
+			<p>Rank  <span class="badge"> <%= current_user.rank %> </span></p>
+		</div>
+
 
 		<div class="user-data">
-			<p>Posts  <span class="badge">4</span></p>
-			<p>Comments   <span class="badge">4</span></p>
-			<p>Rank  <span class="badge">4</span></p>
+			<p>Posts  <span class="badge"><%= current_user.posts_count %></span></p>
+			<p>Comments   <span class="badge"><%= current_user.comments_count %></span></p>
+			<p>Rank  <span class="badge"> <%= current_user.rank %> </span></p>
 		</div>
 	</div>
-	
 
-	<center><%= link_to 'Log Out', logout_path, method: :delete%></center>
 
 	
 <%else%>

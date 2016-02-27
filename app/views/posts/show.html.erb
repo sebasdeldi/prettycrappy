@@ -1,4 +1,5 @@
-
+<%- title "PrettyCrappy | Comments" %>
+<% meta description: "Commets section for post", keywords: %w(comments post social)%>
 
 
 
@@ -53,22 +54,41 @@
 
 		</div>
 
-		<!--SPACE FOR ADS AND WIDGETS-->
-		<div class="col col-sm-4 no-padding">
+<!-- PORTION WHERE THE ADS AND WIDGETS ARE LOCATED -->
+		<div class="col col-md-4 col-sm-3 col-xs-3 no-padding">
 			<div class="widgets-portion">
+
 				<div class="widgets-upper">
 					<%= render 'login_widget' %>
 				</div>
 
+
 				<div class="widgets-lower">
 					<%= render 'categories_widget' %>
+					<%= render 'social_widget' %>
 				</div>
 				
 			</div>
 		</div>
 	</div>
-	
-
-	
 </div>
+
+<div class="row lower">
+	<div class="widgets-sm">
+		<div class="widgets-footer-position">
+			<div class="col-xs-4 user-lower no-padding">
+				<%= render 'login_mini_widget' %>
+			</div>
+
+			<div class="col-xs-4 social-lower no-padding">
+				<%= render 'social_widget' %>
+			</div>
+
+			<div class="col-xs-4 categories-lower no-padding">
+				<%= render 'categories_widget' %>
+			</div>
+		</div>
+	</div>
+</div>
+
 

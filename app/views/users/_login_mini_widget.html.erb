@@ -1,0 +1,26 @@
+<% if signed_in? %>
+
+	<div>
+		<div class="user-info-lower">
+			<center>
+
+				<h4>    <%= current_user.username%>  <i class="<%= sex_icon %>"></i> </h4>
+				
+				<img src="<%= Gravatar.new("#{current_user.email}").image_url %>" class="img-circle" />
+				<p>Rank  <span class="badge"> <%= current_user.rank %> </span></p>
+			</center>
+		</div>
+	</div>	
+<%else%>
+	<div class="log-or-reg">
+		<center>
+			
+			<%= link_to 'Log In', login_path %>
+			<br>
+			<center><p>Or</p></center>
+			<%= link_to 'Register', new_user_path %>
+
+		</center>
+
+	</div>
+<% end %>

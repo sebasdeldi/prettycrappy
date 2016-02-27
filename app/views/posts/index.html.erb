@@ -1,11 +1,19 @@
+<%- title "PrettyCrappy | Home" %>
 
+<% meta description: "Why keep your disgraces to yourself when you can make others laugh? your disgrace may be another person's joy!", keywords: %w(funny pretty crappy)%>
 <div class="row">
 
 	<div class="main-container">
 		<!-- PORTION WHERE ALL THE POSTS ARE CONTAINED -->
 		<div class="col col-md-8 col-sm-9 col-xs-9 no-padding">
 
-				<div class="posts-portion ">
+				<div class="posts-portion">
+
+					<div class="post-anon-disclaimer">
+						<p>Why keep your disgraces to yourself when you can make others laugh? your disgrace may be another person's joy!</p>
+						<p>You don't have to be registered in order to <%=link_to 'Post!',new_post_path %> or Vote!</p>
+					</div>
+					
 					<% @posts.each do |post| %>
 						<%= link_to post, :class => "body-text" do%>
 							<div class="post-container hyphenate">
@@ -96,7 +104,8 @@
 
 						<%end%>
 					<%end%>
-					<center><%= will_paginate @posts %></center>
+					<center><%= will_paginate @posts, :previous_label => '←', :next_label => '→' , inner_window: 1, outer_window: 0 %></center>
+
 				</div>
 		</div>
 		
@@ -113,6 +122,7 @@
 
 				<div class="widgets-lower">
 					<%= render 'categories_widget' %>
+					<%= render 'social_widget' %>
 				</div>
 				
 			</div>
@@ -120,10 +130,20 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="row lower">
 	<div class="widgets-sm">
 		<div class="widgets-footer-position">
-			
+			<div class="col-xs-4 user-lower no-padding">
+				<%= render 'login_mini_widget' %>
+			</div>
+
+			<div class="col-xs-4 social-lower no-padding">
+				<%= render 'social_widget' %>
+			</div>
+
+			<div class="col-xs-4 categories-lower no-padding">
+				<%= render 'categories_widget' %>
+			</div>
 		</div>
 	</div>
 </div>

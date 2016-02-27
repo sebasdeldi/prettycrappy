@@ -1,3 +1,6 @@
+<%- title "PrettyCrappy | Post" %>
+<% meta description: "PrettyCrappy create a new Post", keywords: %w(new create posts)%>
+
 <% if signed_in? %>
 	<%= render 'form' %>
 <%else%>
@@ -7,7 +10,7 @@
 
 	<div class="row">
 		<div class="main-container">
-			<div class="col col-sm-8 no-padding">
+			<div class="col col-md-8 col-sm-9 col-xs-9 no-padding">
 				<!--INVALID FORM INPUTS HANDLING -->
 				<% if @post.errors.any? %>
 				  <div class="alert alert-danger">
@@ -60,24 +63,42 @@
 				<%end%>
 			</div>
 
-			<!--SPACE FOR ADS AND WIDGETS-->
-			<div class="col col-sm-4 no-padding">
-				<div class="widgets-portion">
-					<div class="widgets-upper">
-						<%= render 'login_widget' %>
-					</div>
+			<!-- PORTION WHERE THE ADS AND WIDGETS ARE LOCATED -->
+					<div class="col col-md-4 col-sm-3 col-xs-3 no-padding">
+						<div class="widgets-portion">
 
-					<div class="widgets-lower">
-						<%= render 'categories_widget' %>
+							<div class="widgets-upper">
+								<%= render 'login_widget' %>
+							</div>
+
+
+							<div class="widgets-lower">
+								<%= render 'categories_widget' %>
+								<%= render 'social_widget' %>
+							</div>
+							
+						</div>
 					</div>
-					
 				</div>
 			</div>
-		</div>
-		
 
-		
-	</div>
+			<div class="row lower">
+				<div class="widgets-sm">
+					<div class="widgets-footer-position">
+						<div class="col-xs-4 user-lower no-padding">
+							<%= render 'login_mini_widget' %>
+						</div>
+
+						<div class="col-xs-4 social-lower no-padding">
+							<%= render 'social_widget' %>
+						</div>
+
+						<div class="col-xs-4 categories-lower no-padding">
+							<%= render 'categories_widget' %>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 <%end%>

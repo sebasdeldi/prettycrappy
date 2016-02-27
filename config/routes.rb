@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'posts/random' => 'posts#random'
   get 'posts/funniest' => 'posts#funniest'
   get 'posts/deserved' => 'posts#deserved'
+  get '/terms' => 'posts#terms'
+  get '/about' => 'posts#about'
   resources :posts
   resources :users, only: [:new, :create]
 
