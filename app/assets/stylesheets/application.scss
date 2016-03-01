@@ -723,7 +723,7 @@ body{
 	}
 
 	.background-image {
-	  background-image: url(/assets/background.jpg);
+	  background-image: url("background.jpg");
 	  background-size: cover;
 	  display: block;
 	  filter: blur(50px);
