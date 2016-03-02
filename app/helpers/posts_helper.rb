@@ -22,9 +22,23 @@ module PostsHelper
 
 	def category_name(p)
 		if p.category_id == 1
-		    "Friendship"
+		    return "Friends"
 		elsif p.category_id == 2
-		    "Love"
+		    return "Love"
+		elsif p.category_id == 3
+			return "Money"
+		elsif p.category_id == 4
+			return "School"
+		elsif p.category_id == 5
+			return "Hot"
+		elsif p.category_id == 6
+			return "Health"
+		elsif p.category_id == 7
+			return "Family"
+		elsif p.category_id == 8
+			return "Work"
+		elsif p.category_id == 9
+			return "Others"
 		end
 	end
 end
