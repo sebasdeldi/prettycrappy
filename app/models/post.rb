@@ -15,6 +15,9 @@
 #
 
 class Post < ActiveRecord::Base
+
+	include Humanizer
+	require_human_on :create
 	
 
 	validates :body, presence: true

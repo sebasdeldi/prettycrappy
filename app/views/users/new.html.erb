@@ -44,6 +44,12 @@
 						<%= label :sex_other, 'Other',  class: 'lbl' %>
 						
 					</div>
+
+					<div class="form-group separator">
+						<%= f.label :humanizer_answer, @user.humanizer_question %>
+						<%= f.text_field :humanizer_answer, placeholder: "Prove you're a human by answering" %>
+						<%= f.hidden_field :humanizer_question_id %>
+					</div>
 					
 					<%= f.submit "Register", class: "btn btn-lg btn-block btn-grey last" %>
 				</div>

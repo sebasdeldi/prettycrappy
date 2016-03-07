@@ -4,6 +4,7 @@ gem 'will_paginate', '~> 3.0.6'
 
 gem 'gravatar-ultimate'
 gem 'metamagic'
+gem 'humanizer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use SCSS for stylesheets

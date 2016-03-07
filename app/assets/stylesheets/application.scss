@@ -16,7 +16,19 @@ $combine-white: #a1a1a1;
 @import "users";
 @import "sessions";
 
+#post_humanizer_answer{
+	border-radius: 3px;
+	border: 0;
+	width: 100%;
+	padding: 10px;
+}
 
+#user_humanizer_answer{
+	border-radius: 3px;
+	border: 0;
+	width: 100%;
+	padding: 10px;
+}
 
 .container-wh{
 	margin-top: 55px;

@@ -16,6 +16,8 @@
 
 class PostsController < ApplicationController
 
+	
+
 	before_action :private_access, only: [:edit, :destroy, :delete]
 
 	def funniest
@@ -111,7 +113,7 @@ class PostsController < ApplicationController
 		def post_params
 
 		
-			params.require(:post).permit(:body,:category_id,:alias,:sex)
+			params.require(:post).permit(:body,:category_id,:alias,:sex,:humanizer_answer,:humanizer_question_id)
 
 			
 		end

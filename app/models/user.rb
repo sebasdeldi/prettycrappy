@@ -17,6 +17,11 @@
 #
 
 class User < ActiveRecord::Base
+
+	include Humanizer
+	require_human_on :create
+
+	
 	has_secure_password validations: false
 	validates :sex, presence: true
 	validates :email, uniqueness: true, format: /@/, presence: true
